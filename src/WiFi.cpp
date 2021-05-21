@@ -348,7 +348,7 @@ char* WiFiClass::firmwareVersion()
 		init();
 	}
 	nm_get_firmware_info(&rev);
-	memset(_version, 0, 9);
+	memset(_version, 0, sizeof(_version));
 	if (rev.u8FirmwareMajor != rev.u8DriverMajor && rev.u8FirmwareMinor != rev.u8DriverMinor) {
 		sprintf(_version, "-Err-");
 	}

@@ -169,7 +169,8 @@ public:
 
 private:
 	int _init;
-	char _version[9];
+	// To prevent overflow (aaa.bbb.ccc\0)
+	char _version[12];
 
 	uint32_t _localip;
 	uint32_t _submask;

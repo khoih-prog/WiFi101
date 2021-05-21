@@ -30,13 +30,29 @@ WiFiServer::WiFiServer(uint16_t port) :
 
 void WiFiServer::begin()
 {
-	begin(0);
+	begin((uint8_t) 0);
 }
 
 uint8_t WiFiServer::beginSSL()
 {
-	return begin(SOCKET_FLAGS_SSL);
+	return begin((uint8_t) SOCKET_FLAGS_SSL);
 }
+
+// For compatibility to WebSockets2_Generic library
+
+void WiFiServer::begin(uint16_t port)
+{
+  _port = port;
+  begin((uint8_t) 0);
+}
+
+uint8_t WiFiServer::beginSSL(uint16_t port)
+{
+  _port = port;
+  return begin((uint8_t) SOCKET_FLAGS_SSL);
+}
+
+//////
 
 uint8_t WiFiServer::begin(uint8_t opt)
 {

@@ -37,6 +37,10 @@ public:
 	WiFiClient available(uint8_t* status = NULL);
 	void begin();
 	uint8_t beginSSL();
+	// For compatibility to WebSockets2_Generic library
+	void begin(uint16_t port);
+	uint8_t beginSSL(uint16_t port);
+	//////
 	virtual size_t write(uint8_t);
 	virtual size_t write(const uint8_t *buf, size_t size);
 	uint8_t status();
