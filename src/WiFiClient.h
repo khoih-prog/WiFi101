@@ -33,6 +33,9 @@ class WiFiClient : public Client {
 public:
 	WiFiClient();
 	WiFiClient(uint8_t sock);
+	
+	// To remove warning "deleting object of polymorphic class type"
+	virtual ~WiFiClient(){}
 
 	uint8_t status();
 	
